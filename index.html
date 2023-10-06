@@ -7,6 +7,9 @@
 </head>
 <body>
     <div id="vis"/>
+    <div id="map"/>
+
+
     <script>
     const spec = {
     "data": {"url": "https://raw.githubusercontent.com/akanel15/fit3179-hwtask/main/data/world-data-2023.csv"},
@@ -22,6 +25,20 @@
     }
   }
     vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
-  </script>
+    const temp = {
+    "data": {"url": "https://raw.githubusercontent.com/akanel15/fit3179-hwtask/main/data/world-data-2023.csv"},
+    "mark": {"type": "geoshape", "filled": true},
+    "encoding": {
+      "color": {"field": "Infant mortality", "type": "quantitative"},
+      "tooltip": [
+      {"field": "Country", "type": "ordinal", "title": "Country"},
+      {"field": "Infant mortality", "type": "quantitative", "title": "Infant mortality"},
+      {"field": "Physicians per thousand", "type": "quantitative", "title": "Physicians per thousand"}
+    ]
+    }
+  }
+    vegaEmbed("#map", temp, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+    </script>
+
 </body>
 </html>
