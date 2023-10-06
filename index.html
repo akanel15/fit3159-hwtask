@@ -23,13 +23,13 @@
       {"field": "Physicians per thousand", "type": "quantitative", "title": "Physicians per thousand"}
     ]
     }
-  }
-    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
-    const temp = {
+  }   
+    const spec2 = {
     "data": {"url": "https://raw.githubusercontent.com/akanel15/fit3179-hwtask/main/data/world-data-2023.csv"},
-    "mark": {"type": "geoshape", "filled": true},
+    "mark": {"type": "point", "filled": true},
     "encoding": {
-      "color": {"field": "Infant mortality", "type": "quantitative"},
+      "x": {"field": "Infant mortality", "type": "quantitative"},
+      "y": {"field": "Physicians per thousand", "type": "quantitative"},
       "tooltip": [
       {"field": "Country", "type": "ordinal", "title": "Country"},
       {"field": "Infant mortality", "type": "quantitative", "title": "Infant mortality"},
@@ -37,8 +37,9 @@
     ]
     }
   }
-    vegaEmbed("#map", temp, {mode: "vega-lite"}).then(console.log).catch(console.warn);
-    </script>
+    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+    vegaEmbed("#map", temp, {spec2: "vega-lite"}).then(console.log).catch(console.warn);
+  </script>
 
 </body>
 </html>
