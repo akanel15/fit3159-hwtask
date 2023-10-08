@@ -72,7 +72,13 @@
               "encoding": {
                 "color": {
                   "field": "Birth Rate",
-                  "type": "quantitative"
+                  "type": "quantitative",
+                  "title": [ "Birth Rate"],
+                  "scale": {
+                    "type": "threshold",
+                    "domain": [10,18,26],
+                    "range": ["#c6dbef","#6baed6","#2171b5","#084594"]
+                  }
                 },
                 "tooltip": [
                     {"field": "Country", "type": "ordinal", "title": "Country"},
