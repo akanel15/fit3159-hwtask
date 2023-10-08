@@ -56,9 +56,8 @@
       "x": {"field": "Physicians per thousand", "type": "quantitative"},
       "tooltip": [
       {"field": "Country", "type": "ordinal", "title": "Country"},
-      {"field": "Infant mortality", "type": "quantitative", "title": "Infant mortality"},
-      {"field": {"signal": "comparison"}, "type": "quantitative", "title": {"signal": "comparison"}}
-    ]
+      {"field": "Infant mortality", "type": "quantitative", "title": "Infant mortality"}
+      ]
     }
   }  
 
@@ -66,7 +65,7 @@
 
   xAxisSelect.addEventListener("change", () => {
     const selectedOption = xAxisSelect.value;
-    view.signal("comparison", selectedOption);
+    spec.signal("comparison", selectedOption);
   });
   /*const spec2 = {
     "data": {"url": "https://raw.githubusercontent.com/akanel15/fit3179-hwtask/main/data/world-data-2023.csv"},
