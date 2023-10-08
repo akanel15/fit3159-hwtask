@@ -68,13 +68,12 @@
                 "url": "https://raw.githubusercontent.com/akanel15/fit3179-hwtask/main/data/world-data-2023.csv",
                 "format": { "type": "csv" }
             },
-            "mark": {
-                "type": "circle",
-                "color": "red"
-            },
-            "encoding": {
-                "longitude": { "field": "Longitude", "type": "quantitative" },
-                "latitude": { "field": "Latitude", "type": "quantitative" },
+            "mark": "geoshape",
+              "encoding": {
+                "color": {
+                  "field": "rate",
+                  "type": "quantitative"
+                },
                 "tooltip": [
                     {"field": "Country", "type": "ordinal", "title": "Country"},
                     { "field": "Tax revenue (%)", "type": "nominal", "title": "Tax revenue (%)"}
