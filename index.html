@@ -13,7 +13,7 @@
     <script>
     const spec = {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Circuits on World Map",
+    "title": "Infant mortality vs Physicians per thousand",
     "width": 800,
     "height": 400,
     "data": {"url": "https://raw.githubusercontent.com/akanel15/fit3179-hwtask/main/data/world-data-2023.csv"},
@@ -47,21 +47,14 @@
 
   const spec2 = {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-    "title": "Circuits on World Map",
+    "title": "World Map of ",
     "width": 800,
     "height": 400,
 
-    "projection": { "type": "equalEarth" },
+    "projection": { "type": "equirectangular" },
     "layer": [
         {
             "mark": { "type": "geoshape", "fill": "lightgray", "stroke": "white" }
-        },
-        {
-            "data": {
-                "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/oceans.topojson",
-                "format": { "type": "topojson", "feature": "oceans" }
-            },
-            "mark": { "type": "geoshape", "fill": "skyblue" }
         },
         {
             "data": {
