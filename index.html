@@ -16,18 +16,37 @@
     "title": "Infant mortality vs Physicians per thousand",
     "width": 800,
     "height": 400,
+    "signals": 
+    [
+      {
+        "name": "comparison",
+        "value": "Physicians per thousand",
+        "bind": {
+          "input": "select",
+          "options": [
+            "Birth Rate",
+            "Density(P/Km2)",
+            "CPI",
+            "Fertility Rate",
+            "Life expectancy",
+            "Minimum wage"
+          ]
+        }
+      }
+    ],
+
     "data": {"url": "https://raw.githubusercontent.com/akanel15/fit3179-hwtask/main/data/world-data-2023.csv"},
     "mark": {"type": "point", "filled": true},
     "encoding": {
-      "x": {"field": "Infant mortality", "type": "quantitative"},
-      "y": {"field": "Physicians per thousand", "type": "quantitative"},
+      "y": {"field": "Infant mortality", "type": "quantitative"},
+      "x": {"field": "Physicians per thousand", "type": "quantitative"},
       "tooltip": [
       {"field": "Country", "type": "ordinal", "title": "Country"},
       {"field": "Infant mortality", "type": "quantitative", "title": "Infant mortality"},
-      {"field": "Physicians per thousand", "type": "quantitative", "title": "Physicians per thousand"}
+      {"field": {"signal": "comparison"}, "type": "quantitative", "title": {"signal": "comparison"}}
     ]
     }
-  }   
+  }  
   /*const spec2 = {
     "data": {"url": "https://raw.githubusercontent.com/akanel15/fit3179-hwtask/main/data/world-data-2023.csv"},
     "mark": {"type": "geoshape", "filled": true},
