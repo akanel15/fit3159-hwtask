@@ -68,18 +68,13 @@
                 "url": "https://raw.githubusercontent.com/akanel15/fit3179-hwtask/main/data/world-data-2023.csv",
                 "format": { "type": "csv" }
             },
-            "mark": "geoshape",
-              "encoding": {
-                "color": {
-                  "field": "Birth Rate",
-                  "type": "quantitative",
-                  "title": [ "Birth Rate"],
-                  "scale": {
-                    "type": "threshold",
-                    "domain": [10,18,26],
-                    "range": ["#c6dbef","#6baed6","#2171b5","#084594"]
-                  }
-                },
+            "mark": {
+                "type": "circle",
+                "color": "green"
+            },
+            "encoding": {
+                "longitude": { "field": "Longitude", "type": "quantitative" },
+                "latitude": { "field": "Latitude", "type": "quantitative" },
                 "tooltip": [
                     {"field": "Country", "type": "ordinal", "title": "Country"},
                     { "field": "Birth Rate", "type": "nominal", "title": "Tax revenue (%)"}
