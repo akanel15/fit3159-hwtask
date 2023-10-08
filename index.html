@@ -43,15 +43,6 @@
       ]
     }
   }  
-  function renderVis() {
-
-    
-    if (selectedYear === "all") {
-        spec.layer[2].transform[0].filter = "true";
-    } else {
-        spec.layer[2].transform[0].filter = `datum.AllYears == ${selectedYear}`;
-    }
-}
 
   xAxisSelect.addEventListener("change", () => {
     const selectedOption = xAxisSelect.value;
