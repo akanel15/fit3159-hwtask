@@ -58,8 +58,8 @@
         },
         {
             "data": {
-                "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/oceans.topojson",
-                "format": { "type": "topojson", "feature": "oceans" }
+                "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/oceans.topojson"
+                //"format": { "type": "topojson", "feature": "oceans" }
             },
             "mark": { "type": "geoshape", "fill": "skyblue" }
         },
@@ -76,7 +76,8 @@
                 "longitude": { "field": "Longitude", "type": "quantitative" },
                 "latitude": { "field": "Latitude", "type": "quantitative" },
                 "tooltip": [
-                    { "field": "Tax revenue (%)", "type": "nominal", "title": "Tax revenue (%)" }
+                    {"field": "Country", "type": "ordinal", "title": "Country"},
+                    { "field": "Tax revenue (%)", "type": "nominal", "title": "Tax revenue (%)"}
                 ]
             }
         }
