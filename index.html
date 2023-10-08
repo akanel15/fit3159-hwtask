@@ -45,11 +45,22 @@
       ]
     }
   }  
+  function renderVis() {
 
+    
+    if (selectedYear === "all") {
+        spec.layer[2].transform[0].filter = "true";
+    } else {
+        spec.layer[2].transform[0].filter = `datum.AllYears == ${selectedYear}`;
+    }
+}
 
   xAxisSelect.addEventListener("change", () => {
     const selectedOption = xAxisSelect.value;
-    spec.encoding.x.field = selectedOption;
+    spec.encoding.x.field = selectedOption;    
+    vegaEmbed("#vis", spec, embedOptions).then(console.log).catch(console.warn);
+
+
   });
   /*const spec2 = {
     "data": {"url": "https://raw.githubusercontent.com/akanel15/fit3179-hwtask/main/data/world-data-2023.csv"},
@@ -108,7 +119,7 @@
     "config": {}
 };
 
-  vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  vegaEmbed("#vis", spec, embedOptions).then(console.log).catch(console.warn);
   vegaEmbed("#map", spec2, {mode: "vega-lite"}).then(console.log).catch(console.warn);
 
 
