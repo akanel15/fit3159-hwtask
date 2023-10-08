@@ -25,35 +25,20 @@
 
 
     <script>
+    let c = "Physicians per thousand";
+    const xAxisSelect = document.getElementById("xAxisSelect");
+
+
     const spec = {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Infant mortality vs Physicians per thousand",
     "width": 800,
     "height": 400,
-    "signals": 
-    [
-      {
-        "name": "comparison",
-        "value": "Physicians per thousand",
-        "bind": {
-          "input": "select",
-          "options": [
-            "Birth Rate",
-            "Density(P/Km2)",
-            "CPI",
-            "Fertility Rate",
-            "Life expectancy",
-            "Minimum wage"
-          ]
-        }
-      }
-    ],
-
     "data": {"url": "https://raw.githubusercontent.com/akanel15/fit3179-hwtask/main/data/world-data-2023.csv"},
     "mark": {"type": "point", "filled": true},
     "encoding": {
       "y": {"field": "Infant mortality", "type": "quantitative"},
-      "x": {"field": xAxisSelect.value, "type": "quantitative"},
+      "x": {"field": c, "type": "quantitative"},
       "tooltip": [
       {"field": "Country", "type": "ordinal", "title": "Country"},
       {"field": "Infant mortality", "type": "quantitative", "title": "Infant mortality"}
@@ -61,11 +46,10 @@
     }
   }  
 
-  const xAxisSelect = document.getElementById("xAxisSelect");
 
   xAxisSelect.addEventListener("change", () => {
     const selectedOption = xAxisSelect.value;
-    spec.signals("comparison", selectedOption);
+    spec.encoding.x.field = selectedOption;
   });
   /*const spec2 = {
     "data": {"url": "https://raw.githubusercontent.com/akanel15/fit3179-hwtask/main/data/world-data-2023.csv"},
