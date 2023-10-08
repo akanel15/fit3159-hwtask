@@ -24,7 +24,7 @@
     ]
     }
   }   
-    const spec2 = {
+  /*const spec2 = {
     "data": {"url": "https://raw.githubusercontent.com/akanel15/fit3179-hwtask/main/data/world-data-2023.csv"},
     "mark": {"type": "geoshape", "filled": true},
     "encoding": {
@@ -36,8 +36,45 @@
     ]
     }
   }
-    vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
-    vegaEmbed("#map", spec2, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  */
+
+
+  const embedOptions = { mode: "vega-lite", actions: false };
+
+  const spec2 = {
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": "Circuits on World Map",
+    "width": 800,
+    "height": 400,
+    "data": {
+        "url": "https://raw.githubusercontent.com/akanel15/fit3179-hwtask/main/data/world-data-2023.csv",
+        "format": {
+            "type": "topojson",
+            "feature": "countries"
+        }
+    },
+    "projection": { "type": "equalEarth" },
+    "layer": [
+        {
+            "mark": { "type": "geoshape", "fill": "lightgray", "stroke": "white" }
+        },
+        {
+            "data": {
+                "url": "https://raw.githubusercontent.com/FIT3179/Vega-Lite/main/7_others/oceans.topojson",
+                "format": { "type": "topojson", "feature": "oceans" }
+            },
+            "mark": { "type": "geoshape", "fill": "skyblue" }
+        }
+    ],
+    "config": {}
+  };
+
+  vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  vegaEmbed("#map", spec2, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+
+
+
+
   </script>
 
 </body>
