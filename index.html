@@ -6,6 +6,20 @@
   <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.20.8"></script>
 </head>
 <body>
+  <div id="options">
+    <label for="xAxisSelect">Select X-Axis Variable:</label>
+    <select id="xAxisSelect">
+      <option value="Physicians per thousand">Physicians per thousand</option>
+      <option value="Birth Rate">Birth Rate</option>
+      <option value="Density(P/Km2)">Density(P/Km2)</option>
+      <option value="CPI">CPI</option>
+      <option value="Fertility Rate">Fertility Rate</option>
+      <option value="Life expectancy">Life expectancy</option>
+      <option value="Minimum wage">Minimum wage</option>
+    </select>
+  </div>
+
+  
   <div id="vis"></div>
   <div id="map"></div>
 
@@ -47,6 +61,13 @@
     ]
     }
   }  
+
+  const xAxisSelect = document.getElementById("xAxisSelect");
+
+  xAxisSelect.addEventListener("change", () => {
+    const selectedOption = xAxisSelect.value;
+    view.signal("comparison", selectedOption);
+  });
   /*const spec2 = {
     "data": {"url": "https://raw.githubusercontent.com/akanel15/fit3179-hwtask/main/data/world-data-2023.csv"},
     "mark": {"type": "geoshape", "filled": true},
