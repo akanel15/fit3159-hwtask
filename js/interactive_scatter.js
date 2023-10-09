@@ -1,5 +1,21 @@
 const xAxisSelect = document.getElementById("xAxisSelect");
 
+const emojiMapping = {
+    'United States': '🇺🇸',
+    'Canada': '🇨🇦',
+    'United Kingdom': '🇬🇧',
+    'Australia': '🇦🇺',
+    'France': '🇫🇷',
+    'Germany': '🇩🇪',
+    'Japan': '🇯🇵',
+    'China': '🇨🇳',
+    'India': '🇮🇳',
+    'Brazil': '🇧🇷',
+    'Russia': '🇷🇺',
+    'South Africa': '🇿🇦'
+  };
+
+
 const spec = {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Infant Mortality Rate",
@@ -20,11 +36,11 @@ const spec = {
           }
         },
         {
-          "mark": {"type": "text", "baseline": "middle"},
-          "transform": [
+            "mark": {"type": "text", "baseline": "middle"},
+            "transform": [
             {
-                "calculate": "{'United States': '🇺🇸', 'Canada': '🇨🇦', 'United Kingdom': '🇬🇧', 'Australia': '🇦🇺', 'France': '🇫🇷', 'Germany': '🇩🇪', 'Japan': '🇯🇵', 'China': '🇨🇳', 'India': '🇮🇳', 'Brazil': '🇧🇷', 'Russia': '🇷🇺', 'South Africa': '🇿🇦'}[datum.Country]",
-                "as": "emoji"
+              "calculate": "datum.Country in [" + Object.keys(emojiMapping).map(country => "'" + country + "'").join(",") + "] ? datum.Country : null",
+              "as": "filteredCountry"
             }
             ],
             "mark": {"type": "text", "baseline": "middle"},
@@ -35,7 +51,7 @@ const spec = {
             {"field": "Country", "type": "ordinal", "title": "Country"},
             {"field": "Infant mortality", "type": "quantitative", "title": "Infant mortality"}
             ],
-            "text": {"field": "emoji", "type": "nominal"},
+            "text": {"field": "filteredCountry", "type": "nominal"},
             }
         }
       ]
