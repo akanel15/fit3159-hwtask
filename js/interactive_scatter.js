@@ -39,19 +39,13 @@ const spec = {
             "mark": {"type": "text", "baseline": "middle"},
             "transform": [
             {
-              "calculate": "datum.Country in [" + Object.keys(emojiMapping).map(country => "'" + country + "'").join(",") + "] ? datum.Country : null",
-              "as": "filteredCountry"
+                "filter": "datum.Country in " + JSON.stringify(Object.keys(emojiMapping))
             }
             ],
             "mark": {"type": "text", "baseline": "middle"},
             "encoding": {
             "y": {"field": "Infant mortality", "type": "quantitative"},
-            "x": {"field": "Physicians per thousand", "type": "quantitative"},
-            "tooltip": [
-            {"field": "Country", "type": "ordinal", "title": "Country"},
-            {"field": "Infant mortality", "type": "quantitative", "title": "Infant mortality"}
-            ],
-            "text": {"field": "filteredCountry", "type": "nominal"},
+            "x": {"field": "Physicians per thousand", "type": "quantitative"}
             }
         }
       ]
