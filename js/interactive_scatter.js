@@ -33,3 +33,5 @@ vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.war
 
 
 vegaEmbed("#vis", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+
+// Path: js/interactive_scatter.js
