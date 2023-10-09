@@ -10,7 +10,7 @@ const spec = {
 "mark": {"type": "point", "filled": true},
 "encoding": {
   "y": {"field": "Infant mortality", "type": "quantitative"},
-  "x": {"field": c, "type": "quantitative"},
+  "x": {"field": "Physicians per thousand", "type": "quantitative"},
   "tooltip": [
   {"field": "Country", "type": "ordinal", "title": "Country"},
   {"field": "Infant mortality", "type": "quantitative", "title": "Infant mortality"}

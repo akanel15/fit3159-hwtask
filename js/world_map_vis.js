@@ -1,4 +1,4 @@
-const spec = {
+const spec2 = {
     "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
     "title": "Countries Tax Rate",
     "width": 800,
@@ -37,4 +37,4 @@ const spec = {
     ],
     "config": {}
 };
-  vegaEmbed("#map", spec, {mode: "vega-lite"}).then(console.log).catch(console.warn);
+  vegaEmbed("#map", spec2, {mode: "vega-lite"}).then(console.log).catch(console.warn);
