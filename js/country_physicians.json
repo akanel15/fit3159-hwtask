@@ -1,8 +1,0 @@
-{
-    "data": {"url": "data/world-data-2023.csv"},
-    "mark": {"type": "point", "filled": true},
-    "encoding": {
-      "x": {"field": "Physicians per thousand", "type": "quantitative"},
-      "y": {"field": "Infant Mortality", "type": "quantitative"}
-    }
-  }
