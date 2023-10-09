@@ -8,7 +8,7 @@ const spec = {
     "data": {"url": "https://raw.githubusercontent.com/akanel15/fit3179-hwtask/main/data/world-data-2023.csv"},
     "transform": [
     {
-      "calculate": "{'United States': '🐄'}[datum.country]",
+      "calculate": "{'United States': '🐄'}[datum.Country]",
       "as": "emoji"
     }],
     "mark": {"type": "text", "baseline": "middle"},
