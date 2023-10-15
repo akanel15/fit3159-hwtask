@@ -38,40 +38,130 @@
     };
 
     const spec = {
-      "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-      "title": "Infant Mortality Rate",
-      "width": 800,
-      "height": 400,
-      "data": {"url": "https://raw.githubusercontent.com/akanel15/fit3179-hwtask/main/data/world-data-2023.csv"},
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 500,
+  "height": 400,
+  "data": {
+    "url": "https://raw.githubusercontent.com/akanel15/FIT3179-assignment2/main/data/world-data-2023.csv"
+  },
+  "layer": [
+    {
       "layer": [
         {
-          "mark": {"type": "point", "filled": true},
+          "mark": {"type": "point", "filled": true, "color": "grey"},
           "encoding": {
             "y": {"field": "Infant mortality", "type": "quantitative"},
             "x": {"field": "Physicians per thousand", "type": "quantitative"},
             "tooltip": [
               {"field": "Country", "type": "ordinal", "title": "Country"},
-              {"field": "Infant mortality", "type": "quantitative", "title": "Infant mortality"}
+              {"field": "Infant mortality", "type": "quantitative", "title": "Infant mortality"},
+              {"field": "Physicians per thousand", "type": "quantitative", "title": "Physicians per thousand"},
+              {"value": "Other"}
             ]
-          }
+          },
+          "legend": {"title": "Other", "orient": "right"}
         },
         {
-          "mark": {"type": "text", "baseline": "middle"},
+          "mark": {"type": "point", "filled": true, "color": "orange", "size": 100},
           "transform": [
             {
-              "filter": "datum.Country == 'United States'",
-              "calculate": "'🐄'",
-              "as": "emoji"
+              "filter": "datum.Country === 'United States'",
+              "calculate": "{'United States': '🇺🇸'}[datum.Country]",
+              "as": "usa"
             }
           ],
           "encoding": {
             "y": {"field": "Infant mortality", "type": "quantitative"},
             "x": {"field": "Physicians per thousand", "type": "quantitative"},
-          },
-          "text": {"field": "emoji", "type": "nominal"}
+            "tooltip": [
+              {"field": "Country", "type": "ordinal", "title": "Country"},
+              {"field": "Infant mortality", "type": "quantitative", "title": "Infant mortality"},
+              {"field": "Physicians per thousand", "type": "quantitative", "title": "Physicians per thousand"},
+              {"value": "USA"}
+            ],
+            "legend": {"title": "USA", "orient": "right"}
+          }
         }
       ]
-    };
+    },
+    {
+      "layer": [
+        {
+          "mark": {"type": "point", "filled": true, "color": "red", "size": 100},
+          "transform": [
+            {
+              "filter": "datum.Country === 'Nigeria' || datum.Country === 'Democratic Republic of Congo' || datum.Country === 'Mali' || datum.Country === 'Angola' || datum.Country === 'Chad' || datum.Country === 'Guinea' || datum.Country === 'Sierra Leone' || datum.Country === 'Ivory Coast' || datum.Country === 'Central African Republic'",
+              "as": "africa"
+            }
+          ],
+          "encoding": {
+            "y": {"field": "Infant mortality", "type": "quantitative"},
+            "x": {"field": "Physicians per thousand", "type": "quantitative"},
+            "tooltip": [
+              {"field": "Country", "type": "ordinal", "title": "Country"},
+              {"field": "Infant mortality", "type": "quantitative", "title": "Infant mortality"},
+              {"field": "Physicians per thousand", "type": "quantitative", "title": "Physicians per thousand"},
+              {"value": "African Countries"}
+            ],
+            "legend": {"title": "African Countries", "orient": "right"}
+          }
+        },
+        {
+          "mark": {"type": "point", "filled": true, "color": "green", "size": 100},
+          "transform": [
+            {
+              "filter": "datum.Country === 'United Kingdom' || datum.Country === 'France' || datum.Country === 'Germany' || datum.Country === 'Italy' || datum.Country === 'Spain' || datum.Country === 'Greece' || datum.Country === 'Sweeden' || datum.Country === 'Romania' || datum.Country === 'Ukraine'",
+              "as": "European"
+            }
+          ],
+          "encoding": {
+            "y": {"field": "Infant mortality", "type": "quantitative"},
+            "x": {"field": "Physicians per thousand", "type": "quantitative"},
+            "tooltip": [
+              {"field": "Country", "type": "ordinal", "title": "Country"},
+              {"field": "Infant mortality", "type": "quantitative", "title": "Infant mortality"},
+              {"field": "Physicians per thousand", "type": "quantitative", "title": "Physicians per thousand"},
+              {"value": "European Countries"}
+            ],
+            "legend": {"title": "European Countries", "orient": "right"}
+          }
+        }
+      ]
+    },
+    {
+      "layer": [
+        {
+          "mark": {"type": "point", "filled": true, "color": "blue", "size": 100},
+          "transform": [
+            {
+              "filter": "datum.Country === 'Australia'",
+              "as": "aus"
+            }
+          ],
+          "encoding": {
+            "y": {"field": "Infant mortality", "type": "quantitative"},
+            "x": {"field": "Physicians per thousand", "type": "quantitative"},
+            "tooltip": [
+              {"field": "Country", "type": "ordinal", "title": "Country"},
+              {"field": "Infant mortality", "type": "quantitative", "title": "Infant mortality"},
+              {"field": "Physicians per thousand", "type": "quantitative", "title": "Physicians per thousand"}
+            ],
+            "legend": {"title": "Australia", "orient": "right"}
+          }
+        }
+      ]
+    }
+  ],
+  "config": {
+    "legend": {
+      "title": "Legend",
+      "orient": "right",
+      "symbolFillColor": "black",
+      "symbolStrokeColor": "black"
+    }
+  }
+};
+
 
     xAxisSelect.addEventListener("change", () => {
       const selectedOption = xAxisSelect.value;
