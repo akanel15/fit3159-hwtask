@@ -38,12 +38,10 @@ const spec = {
         {
             "mark": {"type": "text", "baseline": "middle"},
             "transform": [
-            {
-                "filter": "datum.Country in " + JSON.stringify(Object.keys(emojiMapping)),
-                "calculate": "{'United States': '🇺🇸', 'Canada': '🇨🇦', 'United Kingdom': '🇬🇧', 'Australia': '🇦🇺', 'France': '🇫🇷', 'Germany': '🇩🇪', 'Japan': '🇯🇵', 'China': '🇨🇳', 'India': '🇮🇳', 'Brazil': '🇧🇷', 'Russia': '🇷🇺', 'South Africa': '🇿🇦'}[datum.Country]",
+              {
+                "calculate": "{'United States': '🐄'}[datum.Country]",
                 "as": "emoji"
-            }
-            ],
+              }],
             "encoding": {
             "y": {"field": "Infant mortality", "type": "quantitative"},
             "x": {"field": "Physicians per thousand", "type": "quantitative"}
