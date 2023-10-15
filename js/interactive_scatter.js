@@ -39,6 +39,7 @@ const spec = {
             "mark": {"type": "text", "baseline": "middle"},
             "transform": [
               {
+                "filter": "datum.Country == 'United States'",
                 "calculate": "{'United States': '🐄'}[datum.Country]",
                 "as": "emoji"
               }],
